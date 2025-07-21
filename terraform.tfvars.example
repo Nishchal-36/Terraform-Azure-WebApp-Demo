@@ -1,0 +1,31 @@
+# Copy this file to terraform.tfvars and fill in your values
+
+# Azure Authentication
+client_id       = "your-client-id"
+client_secret   = "your-client-secret"
+tenant_id       = "your-tenant-id"
+subscription_id = "your-subscription-id"
+
+# Infrastructure Configuration
+resource_group_name = "app-grp"
+location           = "East US"
+environment        = "demo"
+
+# Networking
+vnet_name               = "demo-vnet"
+vnet_address_space      = ["10.0.0.0/16"]
+subnet_name             = "demo-subnet"
+subnet_address_prefixes = ["10.0.1.0/24"]
+
+# Load Balancer
+public_ip_name     = "Webyip"
+load_balancer_name = "WebyLB"
+
+# Virtual Machines
+vm_count       = 2
+vm_size        = "Standard_B2s"
+admin_username = "Natlan"
+admin_password = "Rasgulla@123"
+
+# Custom messages for each VM
+custom_messages = ["How you doing?", "Pretty good eh?"]
