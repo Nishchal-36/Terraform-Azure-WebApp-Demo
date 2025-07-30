@@ -1,63 +1,64 @@
-Overview
-This repository demonstrates how to deploy an Azure web application infrastructure using modular Terraform code. Key components—resource group, networking, load balancer, and virtual machines—are each defined in separate modules for flexibility and clarity.
+# Azure Web App Infrastructure with Terraform
 
-How It Works
-Modules:
+This repository demonstrates how to deploy an Azure web application infrastructure using modular Terraform code. Key components—Resource Group, Networking, Load Balancer, and Virtual Machines—are each defined in separate modules for flexibility and clarity.
 
-resource-group: Creates the Azure Resource Group.
+## How It Works
 
-networking: Sets up Virtual Network and Subnets.
+### Modules
 
-load-balancer: Provisions an Azure Load Balancer.
+- `resource-group`: Creates the Azure Resource Group.
+- `networking`: Sets up Virtual Network and Subnets.
+- `load-balancer`: Provisions an Azure Load Balancer.
+- `virtual-machines`: Deploys Virtual Machines connected to your VNet/LB.
 
-virtual-machines: Deploys Virtual Machines connected to your VNet/LB.
+### Declarative Approach
 
-Declarative Approach:
-You define what resources you want and their basic configuration in .tf files; Terraform takes care of the how.
+You define what resources you want and their basic configuration in `.tf` files; Terraform takes care of the how.
 
-Variables and Outputs:
-Each module uses variables for input and outputs for sharing key values between modules—making your infrastructure reusable and composable.
+### Variables and Outputs
 
-Quickstart
-Configure Variables
+Each module uses:
+- Variables for input
+- Outputs for sharing key values between modules
 
-Edit terraform.tfvars or set values using environment variables for things like locations, VM sizes, and credentials.
+This makes your infrastructure reusable and composable.
 
-Initialize Terraform
+## Quickstart
 
-Run: terraform init
+1. **Configure Variables**
 
-Validate & Preview
+   Edit `terraform.tfvars` or set values using environment variables for:
+   - Location
+   - VM sizes
+   - Credentials
 
-Run: terraform validate
+2. **Initialize Terraform**
 
-(Optional) See what will happen: terraform plan
+terraform init
 
-Deploy
 
-Run: terraform apply
+3. **Validate & Preview**
 
-Security Tips
-DO NOT hardcode sensitive info (like VM passwords).
+terraform validate terraform plan # Optional: See what will happen
 
-Use variables marked as sensitive or a secret manager.
 
-Repo Structure
-text
-/
-│
-├── modules/
-│   ├── resource-group/
-│   ├── networking/
-│   ├── load-balancer/
-│   └── virtual-machines/
-├── main.tf
-├── variables.tf
-├── outputs.tf
-└── README.md
-Notes
-Designed for learning and customization—modify modules as needed for your scenarios!
+4. **Deploy**
 
-For production or enterprise use, review security and compliance settings, or check out [Azure Verified Modules].
+terraform apply
 
-Short and focused—you can further tailor the copy above with specific explanations if you add more custom logic. Let me know if you want a section explained in more depth!
+
+## Security Tips
+
+- Do NOT hardcode sensitive info (like VM passwords).
+- Use variables marked as `sensitive` or a secret manager.
+
+## Repo Structure
+
+/ ├── modules/ │ ├── resource-group/ │ ├── networking/ │ ├── load-balancer/ │ └── virtual-machines/ ├── main.tf ├── variables.tf ├── outputs.tf └── README.md
+
+
+## Notes
+
+- Designed for learning and customization—modify modules as needed for your scenarios.
+- For production or enterprise use, review security and compliance settings.
+- Consider using Azure Verified Modules for hardened templates.
